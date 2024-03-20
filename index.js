@@ -23,12 +23,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // MySQL Connection
 const connection = mysql.createConnection({
-  database:"b2cnsphkcitthcvypjyz",
-  host:"b2cnsphkcitthcvypjyz-mysql.services.clever-cloud.com",
-  password:"91HybtQK79CkiNCdH8YG",
-  port:"3306",
-  user:"uco2pjtflzeoffna"
-  
+  port: config.mysqlPort,
+  host: config.mysqlHost,
+  user: config.mysqlUser,
+  password: config.mysqlPassword,
+  database: config.mysqlDatabase
 });
 
 // Connect to MySQL
