@@ -9,11 +9,12 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT;
 
-app.use(cors({
-  origin: 'https://react-express-sql.netlify.app',
-  optionsSuccessStatus: 200 
-}));
+// app.use(cors({
+//   origin: 'https://react-express-sql.netlify.app',
+//   optionsSuccessStatus: 200 
+// }));
 
+app.use(cors());
 
 
 
