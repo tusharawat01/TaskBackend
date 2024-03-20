@@ -10,7 +10,7 @@ const app = express();
 const port = config.port;
 
 app.use(cors({
-  origin: 'https://react-express-sql.netlify.app/',
+  origin: 'https://react-express-sql.netlify.app',
   optionsSuccessStatus: 200 
 }));
 
@@ -23,11 +23,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // MySQL Connection
 const connection = mysql.createConnection({
-  port: config.mysqlPort,
-  host: config.mysqlHost,
-  user: config.mysqlUser,
-  password: config.mysqlPassword,
-  database: config.mysqlDatabase
+  database:"b2cnsphkcitthcvypjyz",
+  host:"b2cnsphkcitthcvypjyz-mysql.services.clever-cloud.com",
+  password:"91HybtQK79CkiNCdH8YG",
+  port:"3306",
+  user:"uco2pjtflzeoffna"
+  
 });
 
 // Connect to MySQL
