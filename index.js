@@ -3,11 +3,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const cors = require('cors');
-const config = require('./config')
+require('dotenv').config();
 
 // Initialize Express app
 const app = express();
-const port = config.port;
+const port = process.env.PORT;
 
 app.use(cors({
   origin: 'https://react-express-sql.netlify.app',
@@ -23,11 +23,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // MySQL Connection
 const connection = mysql.createConnection({
-  port: config.mysqlPort,
-  host: config.mysqlHost,
-  user: config.mysqlUser,
-  password: config.mysqlPassword,
-  database: config.mysqlDatabase
+  port: process.env.MYSQL_ADDON_PORT,
+  host: process.env.MYSQL_ADDON_HOST,
+  user: process.env.MYSQL_ADDON_USER,
+  password: process.env.MYSQL_ADDON_PASSWORD,
+  database: process.env.MYSQL_ADDON_DB
 });
 
 // Connect to MySQL
@@ -84,7 +84,7 @@ app.get('/api/submissions', (req, res) => {
       return;
     }
     if(results == null){
-      req.send("empty array");
+      res.send("empty array");
     }
     res.json(results);
   });
